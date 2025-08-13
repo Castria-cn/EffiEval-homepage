@@ -16,8 +16,7 @@ markdown     : kramdown
 kramdown:
   input: GFM
   math_engine: mathjax
-  syntax_highlighter_opts:
-    block: true
+
 # kramdown:
 #   syntax_highlighter: rouge
 plugins:
