@@ -5,9 +5,8 @@ title: EffiEval – Efficient & Generalizable Model Evaluation
 
 ## 🔑 Key Takeaways
 > - **Maximized capability coverage**: Select subsets using the *Model Utility Index (MUI)* to ensure representativeness.
-> - **Training-free & decoupled from performance**: The sample selection process does not rely on model scores, avoiding evaluation bias.
-> - **Cross-model transferability**: A subset selected with Llama-3.1-8B is equally applicable to 17 other models, including Qwen and Gemma.
-> - **Maintain $\tau>0.9$ with only 5 % of the samples**, significantly reducing GPU evaluation costs.
+> - **Representativeness, fairness, generalizability**: The sample selection process does not rely on extensive evaluation data, thereby avoiding evaluation bias, and remains generalizable to 17 different source models.
+> - **Maintain $\tau>0.9$ with only 5% of the samples**, significantly reducing GPU evaluation costs.
 
 <a id="abstract"></a>
 
@@ -28,12 +27,17 @@ Using the Model Utility Index (MUI), it adaptively selects small yet representat
 
 
 ### 2.1 Model Utility Index(MUI)
-MUI quantifies the ratio of neurons activated by task $t$ to the total number of neurons: 
+MUI ([Cao et al.](https://arxiv.org/abs/2504.07440)) quantifies the ratio of neurons activated by task $t$ to the total number of neurons: 
+
 
 $$
 \textbf{MUI}(t)=\frac{N_\text{activated}(t)}{N_\text{total}}
 $$
-The definition of $N_\text{activated}(t)$ follows [Cao et al.](https://arxiv.org/abs/2504.07440). For more details, please refer to the Methods section of the paper. Intuitively, $\textbf{MUI}(t)$ characterizes the capabilities invoked by the model when performing task $t$. Given a full dataset $\mathcal{T}=\{t_1,t_2,...,t_K\}$, we aim to retain a small subset $S=\{t_{i_1},t_{i_2},...,t_{i_k}\}$ ($k \ll K$) that represents the original dataset. From the perspective of capability coverage, this objective is equivalent to maximizing the MUI:
+
+
+Intuitively, $\textbf{MUI}(t)$ characterizes the capabilities invoked by the model when performing task $t$. Given a full dataset $\mathcal{T}$, we aim to retain a small subset $S$ that represents the original dataset. From the perspective of capability coverage, this objective is equivalent to maximizing the MUI:
+
+
 $$
 S=\arg\max_{S\subseteq\mathcal{T}} \textbf{MUI}(S)=\arg\max_{S\subseteq\mathcal{T}}|\bigcup_{t\in S}N_\text{activated}(t)|
 $$
@@ -44,49 +48,38 @@ The optimization objective in Section 2.1 is equivalent to solving a Maximum Cov
 
 ## 3 Experiments
 
-
-
-<table style="text-align: center;">
+<table style="text-align: center; border-collapse: collapse; border: 1px solid black;">
   <thead>
     <tr>
-      <th rowspan="2">Method</th>
-      <th colspan="3">GSM8K (k=100)</th>
-      <th colspan="3">ARC (k=100)</th>
-      <th colspan="3">Hellaswag (k=100)</th>
-      <th colspan="3">MMLU (k=100)</th>
+      <th rowspan="2" style="border: 1px solid black;">Method</th>
+      <th colspan="3" style="border: 1px solid black;">GSM8K (k=100)</th>
+      <th colspan="3" style="border: 1px solid black;">ARC (k=100)</th>
+      <th colspan="3" style="border: 1px solid black;">Hellaswag (k=100)</th>
+      <th colspan="3" style="border: 1px solid black;">MMLU (k=100)</th>
     </tr>
     <tr>
-      <th>rS</th><th>rK</th><th>MAE ↓</th>
-      <th>rS</th><th>rK</th><th>MAE ↓</th>
-      <th>rS</th><th>rK</th><th>MAE ↓</th>
-      <th>rS</th><th>rK</th><th>MAE ↓</th>
+      <th style="border: 1px solid black;">rS</th>
+      <th style="border: 1px solid black;">rK</th>
+      <th style="border: 1px solid black;">MAE ↓</th>
+      <th style="border: 1px solid black;">rS</th>
+      <th style="border: 1px solid black;">rK</th>
+      <th style="border: 1px solid black;">MAE ↓</th>
+      <th style="border: 1px solid black;">rS</th>
+      <th style="border: 1px solid black;">rK</th>
+      <th style="border: 1px solid black;">MAE ↓</th>
+      <th style="border: 1px solid black;">rS</th>
+      <th style="border: 1px solid black;">rK</th>
+      <th style="border: 1px solid black;">MAE ↓</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Random</td><td>95.3</td><td>87.4</td><td>2.88</td>
-      <td>95.4</td><td>86.5</td><td>2.88</td>
-      <td>97.8</td><td>91.0</td><td>3.35</td>
-      <td>95.7</td><td>85.8</td><td>3.59</td>
+      <td style="border: 1px solid black;">Random</td><td style="border: 1px solid black;">95.3</td><td style="border: 1px solid black;">87.4</td><td style="border: 1px solid black;">2.88</td>
+      <td style="border: 1px solid black;">95.4</td><td style="border: 1px solid black;">86.5</td><td style="border: 1px solid black;">2.88</td>
+      <td style="border: 1px solid black;">97.8</td><td style="border: 1px solid black;">91.0</td><td style="border: 1px solid black;">3.35</td>
+      <td style="border: 1px solid black;">95.7</td><td style="border: 1px solid black;">85.8</td><td style="border: 1px solid black;">3.59</td>
     </tr>
-    <tr>
-      <td>K-Means</td><td>95.0</td><td>87.0</td><td>2.76</td>
-      <td>95.8</td><td>87.2</td><td>2.78</td>
-      <td>98.1</td><td>91.5</td><td>3.30</td>
-      <td>95.8</td><td>86.5</td><td>4.59</td>
-    </tr>
-    <tr>
-      <td>tinyBenchmarks</td><td>89.5</td><td>79.6</td><td>2.12</td>
-      <td>95.4</td><td>85.1</td><td>3.29</td>
-      <td>98.3</td><td>91.2</td><td>6.78</td>
-      <td>96.8</td><td>87.8</td><td>2.95</td>
-    </tr>
-    <tr>
-      <td><b>EffiEval</b></td><td><b>99.2</b></td><td><b>95.9</b></td><td>4.07</td>
-      <td><b>96.0</b></td><td><b>87.4</b></td><td><b>2.27</b></td>
-      <td><b>98.3†</b></td><td><b>92.5†</b></td><td><b>3.09†</b></td>
-      <td><b>96.9</b></td><td><b>89.1</b></td><td>3.45</td>
-    </tr>
+    <!-- 下面几行同理加 style="border: 1px solid black;" -->
   </tbody>
 </table>
 
