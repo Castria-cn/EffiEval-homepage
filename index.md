@@ -4,9 +4,9 @@ title: EffiEval – Efficient & Generalizable Model Evaluation
 ---
 
 ## 🔑 Key Takeaways
-> - **Maximized capability coverage**: Select subsets using the *Model Utility Index (MUI)* to ensure representativeness.
-> - **Representativeness, fairness, generalizability**: The sample selection process does not rely on extensive evaluation data, thereby avoiding evaluation bias, and remains generalizable to 17 different source models.
-> - **Maintain $\tau>0.9$ with only 5% of the samples**, significantly reducing GPU evaluation costs.
+> - **Training-free efficient benchmarking** — EffiEval is a training-free approach that mitigates data redundancy while preserving evaluation reliability.
+> - **Representativeness, fairness, and generalizability** — EffiEval maximizes capability coverage based on Model Utility Index (MUI), selects subsets independent of model performance, and generalizes across datasets and model families.
+> - **High efficiency with minimal data** — Achieves Kendall’s $\tau > 0.9$ using only ~ 5% of the original data.
 
 <a id="abstract"></a>
 
