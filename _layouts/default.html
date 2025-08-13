@@ -2,28 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
- 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    processEscapes: true
-  }
-});
-</script>
- 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
   <title>{{ page.title }}</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
   {{ site.github_metadata | default: '' }}
+
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </head>
 <body>
 
@@ -34,7 +26,7 @@ MathJax.Hub.Config({
   </main>
 
   <footer class="site-footer">
-    <p>© {{ site.time | date: '%Y' }} {{ site.author[0] }} et al.</p>
+    <p>© {{ site.time | date: '%Y' }} {{ site.author[0] }} et al.</p >
   </footer>
 
 </body>

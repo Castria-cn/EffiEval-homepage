@@ -1,6 +1,5 @@
 ---
 layout: default
-usemathjax: true
 title: EffiEval – Efficient & Generalizable Model Evaluation
 ---
 
