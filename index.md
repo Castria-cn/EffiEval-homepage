@@ -1,5 +1,6 @@
 ---
 layout: default
+usemathjax: true
 title: EffiEval – Efficient & Generalizable Model Evaluation
 ---
 
@@ -38,8 +39,6 @@ $$
 The optimization objective in Section 2.1 is equivalent to solving a Maximum Coverage Problem. Since the number of neurons in LLMs is large, an exact solution is infeasible. Therefore, we employ a greedy algorithm to solve this problem. The pseudocode of the algorithm is provided in the paper as *Algorithm 1*, with a complexity of $O(k \cdot K)$ and an approximation ratio of $(1 - 1/e)$.
 
 ## 3 Experiments
-
-## Experimental Setup
 
 **Baselines.** We compare EffiEval with several representative selection strategies:  
 
