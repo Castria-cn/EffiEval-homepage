@@ -1,0 +1,17 @@
+title      : "EffiEval: Efficient and Generalizable Model Evaluation via Capability Coverage Maximization"
+description: 论文主页
+remote_theme: pages-themes/minimal@v0.2.0
+
+# 站点级变量
+logo: /assets/img/logo.svg
+author:
+  - Yaoning Wang
+  - Jiahao Ying
+  - Yixin Cao*
+
+# Build settings
+markdown     : kramdown
+kramdown:
+  syntax_highlighter: rouge
+plugins:
+  - jekyll-remote-theme

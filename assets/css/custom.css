@@ -1,0 +1,16 @@
+/* 全局排版 */
+body{font: 16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
+.content{max-width: 780px;margin: 0 auto;padding: 2.5rem 1.2rem;}
+
+/* Hero 区 */
+.hero{background:linear-gradient(135deg,#f5f2ff 0%,#ffffff 50%);padding:4rem 1rem;text-align:center;}
+.hero h1{font-size:2.8rem;margin:0 0 0.4rem;font-weight:700;}
+.subtitle{font-size:1.15rem;color:#666;margin-bottom:1rem;}
+.authors{color:#444;font-size:0.95rem;margin-bottom:1.5rem;}
+.btn,.btn-outline{display:inline-block;padding:0.55rem 1.3rem;border-radius:6px;font-weight:600;text-decoration:none;}
+.btn{background:#6478de;color:#fff;}
+.btn-outline{border:2px solid #4f46e5;color:#4f46e5;margin-left:0.6rem;}
+
+/* 章节内的标题 */
+h2{margin-top:2.3rem;border-bottom:2px solid #eeeeff;padding-bottom:0.3rem;font-weight:700;}
+blockquote{border-left:4px solid #ccccff;padding-left:0.9rem;color:#555;}

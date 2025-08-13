@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+  {{ site.github_metadata | default: '' }}
+</head>
+<body>
+
+  {% include hero.html %}
+
+  <main class="content">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <p>© {{ site.time | date: '%Y' }} {{ site.author[0] }} et al.</p>
+  </footer>
+
+</body>
+</html>
