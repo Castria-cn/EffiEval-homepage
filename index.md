@@ -48,40 +48,8 @@ The optimization objective in Section 2.1 is equivalent to solving a Maximum Cov
 
 ## 3 Experiments
 
-<table style="text-align: center; border-collapse: collapse; border: 1px solid black;">
-  <thead>
-    <tr>
-      <th rowspan="2" style="border: 1px solid black;">Method</th>
-      <th colspan="3" style="border: 1px solid black;">GSM8K (k=100)</th>
-      <th colspan="3" style="border: 1px solid black;">ARC (k=100)</th>
-      <th colspan="3" style="border: 1px solid black;">Hellaswag (k=100)</th>
-      <th colspan="3" style="border: 1px solid black;">MMLU (k=100)</th>
-    </tr>
-    <tr>
-      <th style="border: 1px solid black;">rS</th>
-      <th style="border: 1px solid black;">rK</th>
-      <th style="border: 1px solid black;">MAE ↓</th>
-      <th style="border: 1px solid black;">rS</th>
-      <th style="border: 1px solid black;">rK</th>
-      <th style="border: 1px solid black;">MAE ↓</th>
-      <th style="border: 1px solid black;">rS</th>
-      <th style="border: 1px solid black;">rK</th>
-      <th style="border: 1px solid black;">MAE ↓</th>
-      <th style="border: 1px solid black;">rS</th>
-      <th style="border: 1px solid black;">rK</th>
-      <th style="border: 1px solid black;">MAE ↓</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="border: 1px solid black;">Random</td><td style="border: 1px solid black;">95.3</td><td style="border: 1px solid black;">87.4</td><td style="border: 1px solid black;">2.88</td>
-      <td style="border: 1px solid black;">95.4</td><td style="border: 1px solid black;">86.5</td><td style="border: 1px solid black;">2.88</td>
-      <td style="border: 1px solid black;">97.8</td><td style="border: 1px solid black;">91.0</td><td style="border: 1px solid black;">3.35</td>
-      <td style="border: 1px solid black;">95.7</td><td style="border: 1px solid black;">85.8</td><td style="border: 1px solid black;">3.59</td>
-    </tr>
-    <!-- 下面几行同理加 style="border: 1px solid black;" -->
-  </tbody>
-</table>
+<img src="./assets/img/table1.png" alt="EffiEval Workflow" style="max-width:100%;height:auto;display:block;margin:0 auto;">
+
 
 For more results and settings of $k$, please refer to the main text of the paper. The experiment results demonstrate that EffiEval efficiently selects small, representative subsets that closely reflect full-dataset evaluation while reducing computational costs.
 
