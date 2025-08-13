@@ -14,6 +14,11 @@ author:
 # Build settings
 markdown     : kramdown
 kramdown:
-  syntax_highlighter: rouge
+  input: GFM
+  math_engine: mathjax
+  syntax_highlighter_opts:
+    block: true
+# kramdown:
+#   syntax_highlighter: rouge
 plugins:
   - jekyll-remote-theme
