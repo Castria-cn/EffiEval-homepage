@@ -11,7 +11,7 @@ title: EffiEval – Efficient & Generalizable Model Evaluation
 
 <a id="abstract"></a>
 ## Abstract
-{{ page.excerpt | default: "intro"}}
+The rapid advancement of large language models (LLMs) and the development of increasingly large and diverse evaluation benchmarks have introduced substantial computational challenges for model assessment. In this paper, we present **EffiEval**, a training-free approach for efficient benchmarking that effectively addresses data redundancy while maintaining high evaluation reliability. Our method is specifically designed to meet three key criteria for high-quality evaluation: **representativeness**, by ensuring comprehensive coverage of model capabilities; **fairness**, by remaining independent of model performance during sample selection to avoid bias; and **generalizability**, by enabling flexible transfer across datasets and model families without reliance on large-scale evaluation data. Unlike traditional methods that rely on absolute performance or require extensive evaluation data, our approach adaptively selects high-quality representative subsets based on the Model Utility Index (MUI). Extensive experiments on multiple public benchmarks and diverse LLMs demonstrate that EffiEval achieves strong ranking consistency with full-dataset evaluation using only a small fraction of the original data. Furthermore, our method is flexible and scalable in size, allowing users to balance evaluation efficiency and representativeness according to specific needs. Overall, EffiEval provides a practical and generalizable solution for reliable, fair, and efficient evaluation in the era of LLMs.
 
 ## 1 Introduction
 With the rapid growth of large language models (LLMs), existing benchmarks such as MMLU and HELM require hundreds of GPU hours per evaluation, causing costs to surge. We propose EffiEval, a training-free benchmarking method that mitigates data redundancy while preserving evaluation reliability. EffiEval meets three criteria: **representativeness** (comprehensive capability coverage), **fairness** (selection independent of model performance), and **generalizability** (transferable across datasets and model families). Using the Model Utility Index (MUI), it adaptively selects small yet representative subsets, achieving ranking consistency (τ > 0.9) with only a fraction of the data. Experiments on multiple benchmarks and LLMs confirm its efficiency, scalability, and robustness, offering a practical solution for reliable and cost-effective evaluation.
@@ -19,7 +19,7 @@ With the rapid growth of large language models (LLMs), existing benchmarks such 
 ## 2 EffiEval
 > **Key idea：** 
 
-<img src="/assets/img/figures1.gif" alt="EffiEval 框架" style="max-width:100%;height:auto;display:block;margin:0 auto;">
+<img src="./assets/img/figures1.gif" alt="EffiEval Workflow" style="max-width:100%;height:auto;display:block;margin:0 auto;">
 
 
 ### 2.1 Model Utility Index(MUI)
