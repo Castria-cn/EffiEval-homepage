@@ -62,6 +62,16 @@ In the era of large language models, evaluating performance can be costly and ti
 
 ## 📜 BibTeX
 
-```bibtex
+If you find this work helpful, please consider citing:
 
+```bibtex
+@misc{cao2025effievalefficientgeneralizable,
+      title={EffiEval: Efficient and Generalizable Model Evaluation via Capability Coverage Maximization},
+      author={Yixin Cao and Jiahao Ying and Yubo Ma and Yugang Jiang and Yaoning Wang},
+      year={2025},
+      eprint={2508.09662},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2508.09662},
+}
 ```
